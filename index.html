@@ -1,1 +1,130 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cett1moyami | Официальный сайт разработчика</title>
+    <style>
+        body {
+            background-color: #0f0f11;
+            color: #e4e4e7;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .main-card {
+            background-color: #16161a;
+            width: 100%;
+            max-width: 550px;
+            margin: 20px;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #27272a;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .avatar-box {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #00ff80, #00bfff);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #0f0f11;
+            box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.5px;
+        }
+        .nickname {
+            color: #00ff80;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        p {
+            color: #a1a1aa;
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0 0 30px 0;
+        }
+        .project-list {
+            text-align: left;
+            background-color: #1c1c22;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #2e2e38;
+            margin-bottom: 30px;
+        }
+        .project-title {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .project-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff80;
+            border-radius: 50%;
+            margin-right: 12px;
+            box-shadow: 0 0 8px #00ff80;
+        }
+        .status-dot.work {
+            background-color: #ffaa00;
+            box-shadow: 0 0 8px #ffaa00;
+        }
+        .footer-text {
+            color: #52525b;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-card">
+        <div class="avatar-box">C</div>
+        <h1>cett1moyami</h1>
+        <div class="nickname">Independent Developer</div>
+        <p>Привет! Это мой официальный сайт. Я занимаюсь низкоуровневым системным программированием, изучением архитектуры Linux и созданием независимых инди-проектов.</p>
+        <div class="project-list">
+            <div class="project-title">🗺️ Дорожная карта (Планы):</div>
+            <div class="project-item">
+                <div class="status-dot work"></div>
+                <span>1. Личная ОС (База на Linux Mint + кастомный GRUB)</span>
+            </div>
+            <div class="project-item">
+                <div class="status-dot work"></div>
+                <span>2. 2D-Выживалка "Пипис Моями" (GameMaker)</span>
+            </div>
+            <div class="project-item">
+                <div class="status-dot"></div>
+                <span>3. Прокачка и расширение этого Web-сайта</span>
+            </div>
+        </div>
+        <div class="footer-text">
+            © 2026 cett1moyami. Открытый код и полная свобода.
