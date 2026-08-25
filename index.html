@@ -3,128 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cett1moyami | Официальный сайт разработчика</title>
+    <title>ROM PCI/ISA BIOS (2A69K21B) - MOYAMI-OS SETUP</title>
     <style>
+        /* Идеальный синий фон из 99-го года */
         body {
-            background-color: #0f0f11;
-            color: #e4e4e7;
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .main-card {
-            background-color: #16161a;
-            width: 100%;
-            max-width: 550px;
-            margin: 20px;
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid #27272a;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-        .avatar-box {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #00ff80, #00bfff);
-            border-radius: 50%;
-            margin: 0 auto 20px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            font-weight: bold;
-            color: #0f0f11;
-            box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
-        }
-        h1 {
+            background-color: #0000aa;
             color: #ffffff;
-            font-size: 28px;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-        }
-        .nickname {
-            color: #00ff80;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        p {
-            color: #a1a1aa;
-            font-size: 15px;
-            line-height: 1.6;
-            margin: 0 0 30px 0;
-        }
-        .project-list {
-            text-align: left;
-            background-color: #1c1c22;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            margin: 0;
             padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #2e2e38;
+            text-transform: uppercase;
+        }
+
+        /* Главный экран-рамка BIOS */
+        .bios-screen {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 4px double #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Шапка BIOS */
+        .bios-header {
+            text-align: center;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .bios-title {
+            font-size: 20px;
+            color: #ffff55; /* Фирменный желтый текст заголовков */
+        }
+
+        /* Спецификации железа */
+        .hardware-info {
+            font-size: 14px;
+            color: #ffffff;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        /* Таблица-меню настроек (Твои проекты) */
+        .bios-menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
             margin-bottom: 30px;
         }
-        .project-title {
+
+        .menu-item {
+            border: 1px solid #ffffff;
+            padding: 10px;
+            background-color: #0000aa;
+            font-size: 14px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        /* Подсветка выбранного пункта меню (Красная ретро-полоска) */
+        .menu-item.active {
+            background-color: #aa0000;
             color: #ffffff;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
-        .project-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            font-size: 14px;
+
+        .menu-item span {
+            color: #ffff55;
+            float: right;
         }
-        .project-item:last-child {
-            margin-bottom: 0;
-        }
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #00ff80;
-            border-radius: 50%;
-            margin-right: 12px;
-            box-shadow: 0 0 8px #00ff80;
-        }
-        .status-dot.work {
-            background-color: #ffaa00;
-            box-shadow: 0 0 8px #ffaa00;
-        }
-        .footer-text {
-            color: #52525b;
+
+        /* Нижняя панель подсказок кнопок */
+        .bios-footer {
+            border-top: 2px solid #ffffff;
+            padding-top: 15px;
             font-size: 12px;
-            margin-top: 20px;
+            color: #55ffff; /* Неоново-голубые кнопки BIOS */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-item span {
+            color: #ffffff;
+            background-color: #000000;
+            padding: 1px 5px;
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="main-card">
-        <div class="avatar-box">C</div>
-        <h1>cett1moyami</h1>
-        <div class="nickname">Independent Developer</div>
-        <p>Привет! Это мой официальный сайт. Я занимаюсь низкоуровневым системным программированием, изучением архитектуры Linux и созданием независимых инди-проектов.</p>
-        <div class="project-list">
-            <div class="project-title">🗺️ Дорожная карта (Планы):</div>
-            <div class="project-item">
-                <div class="status-dot work"></div>
-                <span>1. Личная ОС (База на Linux Mint + кастомный GRUB)</span>
+
+    <div class="bios-screen">
+        <!-- ВЕРХНЯЯ ШАПКА AWARD BIOS -->
+        <div class="bios-header">
+            <div class="bios-title">ROM PCI/ISA BIOS (2A69K21B)</div>
+            <div style="font-size: 16px; color: #ffffff; margin-top: 5px;">CMOS SETUP UTILITY - CETT1MOYAMI DEV</div>
+        </div>
+
+        <!-- ДАННЫЕ СИСТЕМЫ ПЕРЕД ЗАПУСКОМ -->
+        <div class="hardware-info">
+            CPU: CETT1MOYAMI CORE @ 1999 MHz<br>
+            BASE MEMORY: 640 KB<br>
+            EXTENDED MEMORY: 4096 MB<br>
+            CACHE MEMORY: 512 KB<br>
+            SYSTEM STATUS: <span style="color: #00ff00;">READY TO BOOT</span>
+        </div>
+
+        <!-- ГЛАВНОЕ МЕНЮ BIOS (ДОРОЖНАЯ КАРТА ПРОЕКТОВ) -->
+        <div class="bios-menu">
+            <div class="menu-item active">
+                1. MOYAMI-OS (BOOT-CAT) <span>[IN WORK]</span>
             </div>
-            <div class="project-item">
-                <div class="status-dot work"></div>
-                <span>2. 2D-Выживалка "Пипис Моями" (GameMaker)</span>
+            <div class="menu-item">
+                2. 2D SURVIVAL GAME <span>[PAUSED]</span>
             </div>
-            <div class="project-item">
-                <div class="status-dot"></div>
-                <span>3. Прокачка и расширение этого Web-сайта</span>
+            <div class="menu-item">
+                3. WEB PORTFOLIO UPGRADE <span>[ONLINE]</span>
+            </div>
+            <div class="menu-item">
+                4. LINUX MINT KERNEL MOD <span>[PLANNED]</span>
+            </div>
+            <div class="menu-item">
+                LOAD BIOS DEFAULTS
+            </div>
+            <div class="menu-item">
+                SAVE & EXIT SETUP
             </div>
         </div>
-        <div class="footer-text">
-            © 2026 cett1moyami. Открытый код и полная свобода.
+
+        <p style="font-size: 13px; color: #ffffff; margin: 0 0 25px 0; text-align: left;">
+            ℹ️ SYSTEM NOTE: СНАЧАЛА МЫ СОЗДАЕМ ОПЕРАЦИОННУЮ СИСТЕМУ И СОБСТВЕННУЮ ГРАФИЧЕСКУЮ ОБОЛОЧКУ, А ЗАТЕМ ВОЗВРАЩАЕМСЯ К ИГРАМ. ВЫХОД ИЗ КРИЗИСА ДВИЖКОВ УСПЕШНО ВЫПОЛНЕН.
+        </p>
+
+        <!-- ПАНЕЛЬ ПОДСКАЗОК КНОПОК СНИЗУ -->
+        <div class="bios-footer">
+            <div class="footer-item"><span>ESC</span> : QUIT</div>
+            <div class="footer-item"><span>↑ ↓ → ←</span> : SELECT ITEM</div>
+            <div class="footer-item"><span>F10</span> : SAVE & EXIT SETUP</div>
+        </div>
+    </div>
+
+</body>
+</html>
