@@ -3,147 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROM PCI/ISA BIOS (2A69K21B) - MOYAMI-OS SETUP</title>
+    <title>Source IDE v11.5 - Beta Release</title>
     <style>
-        /* Идеальный синий фон из 99-го года */
         body {
-            background-color: #0000aa;
-            color: #ffffff;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
+            background-color: #0b0813;
+            color: #e0aaff;
+            font-family: 'Consolas', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
-            text-transform: uppercase;
+            box-sizing: border-box;
         }
-
-        /* Главный экран-рамка BIOS */
-        .bios-screen {
+        .container {
+            background-color: #120e24;
+            border: 2px solid #7b2cbf;
+            border-radius: 10px;
+            padding: 30px;
             max-width: 800px;
-            margin: 0 auto;
-            border: 4px double #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Шапка BIOS */
-        .bios-header {
+            width: 100%;
+            box-shadow: 0 0 20px #9d4edd;
             text-align: center;
-            border-bottom: 2px solid #ffffff;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
         }
-
-        .bios-title {
-            font-size: 20px;
-            color: #ffff55; /* Фирменный желтый текст заголовков */
+        h1 {
+            color: #9d4edd;
+            font-size: 28px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px #7b2cbf;
         }
-
-        /* Спецификации железа */
-        .hardware-info {
-            font-size: 14px;
-            color: #ffffff;
+        .subtitle {
+            color: #3c096c;
+            font-weight: bold;
             margin-bottom: 25px;
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        /* Таблица-меню настроек (Твои проекты) */
-        .bios-menu {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .menu-item {
-            border: 1px solid #ffffff;
-            padding: 10px;
-            background-color: #0000aa;
             font-size: 14px;
+        }
+        .console {
+            background-color: #070510;
+            color: #00ff00;
             text-align: left;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            border: 1px solid #1a153a;
+        }
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
-
-        /* Подсветка выбранного пункта меню (Красная ретро-полоска) */
-        .menu-item.active {
-            background-color: #aa0000;
-            color: #ffffff;
+        .btn-download {
+            background-color: #2e7d32;
+            color: white;
+            box-shadow: 0 0 10px #2e7d32;
         }
-
-        .menu-item span {
-            color: #ffff55;
-            float: right;
+        .btn-download:hover {
+            background-color: #388e3c;
+            box-shadow: 0 0 20px #00ff00;
         }
-
-        /* Нижняя панель подсказок кнопок */
-        .bios-footer {
-            border-top: 2px solid #ffffff;
-            padding-top: 15px;
-            font-size: 12px;
-            color: #55ffff; /* Неоново-голубые кнопки BIOS */
-            display: flex;
-            justify-content: space-between;
+        .btn-hammer {
+            background-color: #7b2cbf;
+            color: white;
+            box-shadow: 0 0 10px #7b2cbf;
         }
-
-        .footer-item span {
-            color: #ffffff;
-            background-color: #000000;
-            padding: 1px 5px;
-            margin-right: 5px;
+        .btn-hammer:hover {
+            background-color: #9d4edd;
+            box-shadow: 0 0 20px #c77dff;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #5a189a;
         }
     </style>
 </head>
 <body>
 
-    <div class="bios-screen">
-        <!-- ВЕРХНЯЯ ШАПКА AWARD BIOS -->
-        <div class="bios-header">
-            <div class="bios-title">ROM PCI/ISA BIOS (2A69K21B)</div>
-            <div style="font-size: 16px; color: #ffffff; margin-top: 5px;">CMOS SETUP UTILITY - CETT1MOYAMI DEV</div>
-        </div>
-
-        <!-- ДАННЫЕ СИСТЕМЫ ПЕРЕД ЗАПУСКОМ -->
-        <div class="hardware-info">
-            CPU: CETT1MOYAMI CORE @ 1999 MHz<br>
-            BASE MEMORY: 640 KB<br>
-            EXTENDED MEMORY: 4096 MB<br>
-            CACHE MEMORY: 512 KB<br>
-            SYSTEM STATUS: <span style="color: #00ff00;">READY TO BOOT</span>
-        </div>
-
-        <!-- ГЛАВНОЕ МЕНЮ BIOS (ДОРОЖНАЯ КАРТА ПРОЕКТОВ) -->
-        <div class="bios-menu">
-            <div class="menu-item active">
-                1. MOYAMI-OS (BOOT-CAT) <span>[IN WORK]</span>
-            </div>
-            <div class="menu-item">
-                2. 2D SURVIVAL GAME <span>[PAUSED]</span>
-            </div>
-            <div class="menu-item">
-                3. WEB PORTFOLIO UPGRADE <span>[ONLINE]</span>
-            </div>
-            <div class="menu-item">
-                4. LINUX MINT KERNEL MOD <span>[PLANNED]</span>
-            </div>
-            <div class="menu-item">
-                LOAD BIOS DEFAULTS
-            </div>
-            <div class="menu-item">
-                SAVE & EXIT SETUP
-            </div>
-        </div>
-
-        <p style="font-size: 13px; color: #ffffff; margin: 0 0 25px 0; text-align: left;">
-            ℹ️ SYSTEM NOTE: СНАЧАЛА МЫ СОЗДАЕМ ОПЕРАЦИОННУЮ СИСТЕМУ И СОБСТВЕННУЮ ГРАФИЧЕСКУЮ ОБОЛОЧКУ, А ЗАТЕМ ВОЗВРАЩАЕМСЯ К ИГРАМ. ВЫХОД ИЗ КРИЗИСА ДВИЖКОВ УСПЕШНО ВЫПОЛНЕН.
-        </p>
-
-        <!-- ПАНЕЛЬ ПОДСКАЗОК КНОПОК СНИЗУ -->
-        <div class="bios-footer">
-            <div class="footer-item"><span>ESC</span> : QUIT</div>
-            <div class="footer-item"><span>↑ ↓ → ←</span> : SELECT ITEM</div>
-            <div class="footer-item"><span>F10</span> : SAVE & EXIT SETUP</div>
-        </div>
+<div class="container">
+    <h1>⚡ SOURCE ENGINE STANDALONE IDE v11.5 ⚡</h1>
+    <div class="subtitle">=== БЕТА-РЕЛИЗ УЛЬТИМАТИВНОЙ ОБОЛОЧКИ ===</div>
+    
+    <div class="console">
+[STATUS]: Native Win32 Subsystem Active.<br>
+[SUCCESS]: Монолитная сборка v11.5 стабильна и готова к интеграции.<br>
+[FEATURES]: Раздельные списки энтити, кнопка КРАШ КОД, автобэкап скриптов на диск D и прямой запуск карт в обход видео-тестов!
     </div>
+
+    <div class="btn-group">
+        <!-- Ссылка на скачивание твоего софта (положи game.exe прямо в корень репозитория рядом с index.html) -->
+        <a href="game.exe" class="btn btn-download" download>📂 СКАЧАТЬ SOURCE IDE v11.5 (.EXE)</a>
+        
+        <!-- Официальная ссылка на скачивание Hammer++ -->
+        <a href="https://hammerplusplus.com" target="_blank" class="btn btn-hammer">🚀 СКАЧАТЬ HAMMER++ (OFFICIAL)</a>
+    </div>
+
+    <div class="footer">
+        DEVELOPED BY CETT1MOYAMI // HARDWARE HACKING TEAM 2026
+    </div>
+</div>
 
 </body>
 </html>
